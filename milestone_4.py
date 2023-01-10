@@ -40,18 +40,17 @@ class Hangman:
     # Create function ask_for_input(), which ask the user for a letter ssigned to guess variable and checks if the letter is a valid letter. Inside the function ask_for_input() is called  check(guess) function.
     def ask_for_input(self):
         
-        while True:
-             if self.num_letters>0:
-                if self.num_lives>0:
-                    guess=input("Enter a letter=")
-                    if(len(guess)>1):
-                        print("Invalid letter.Please enter a single alphabetical character.")
-                    elif (guess in self.list_of_guesses):
-                        print("You already tried that letter")
-                    else:
+        
+         while self.num_letters>0:
+            if self.num_lives>0:
+                guess=input("Enter a letter=")
+                if(len(guess)>1):
+                    print("Invalid letter.Please enter a single alphabetical character.")
+                elif (guess in self.list_of_guesses):
+                    print("You already tried that letter")
+                else:
 
-                        self.check_guess(guess)
-                        self.list_of_guesses.append(guess)
-        return None
+                    self.check_guess(guess)
+                    self.list_of_guesses.append(guess)
 h1=Hangman(word_list,num_lives=5)
 h1.ask_for_input()
